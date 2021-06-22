@@ -3,6 +3,7 @@ node{
     git 'https://github.com/SreedeviPK/poc1'
   }
   stage('Compile-Package'){
-    sh 'mvn package'
+    def mvnHome= tool name: 'MAVENHOME', type: 'maven'
+    sh "${mvnHome}/bin/mvn package"
   }
 }

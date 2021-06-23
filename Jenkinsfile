@@ -4,7 +4,26 @@ pipeline {
     {
         maven "MAVENHOME"
     }
-    stages {
+    stages
+    {
+        stage('Build')
+        {
+            steps{
+                git 'https://github.com/SreedeviPK/poc1'
+                //sh "mvn -Dmaven.test.failure.ignore=true clean package"
+                bat "mvn -Dmaven.test.failure.ignore=true clean package"
+            }
+            post{
+                success{
+                    junit '**target/surefire-reports/TEST-*.xml'
+                    archieveArtifacts 'target/*.jar'
+                }
+            }
+        } 
+    }
+    
+    
+    /*stages {
         stage('Static Analysis') {
             steps {
                 echo 'Run the static analysis to the code' 
@@ -35,5 +54,5 @@ pipeline {
                 echo 'Save the assemblies generated from the compilation' 
             }
         }
-    }
+    }*/
 }

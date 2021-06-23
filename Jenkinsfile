@@ -10,7 +10,7 @@ pipeline {
         {
             steps{echo 'Build'
                 //git 'https://github.com/SreedeviPK/poc1'
-               // sh 'mvn compile test install'
+                sh "mvn clean install"
                 //bat "mvn -Dmaven.test.failure.ignore=true clean package"
             }
            /* post{

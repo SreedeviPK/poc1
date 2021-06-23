@@ -10,15 +10,15 @@ pipeline {
         {
             steps{
                 git 'https://github.com/SreedeviPK/poc1'
-                //sh "mvn -Dmaven.test.failure.ignore=true clean package"
-                bat "mvn -Dmaven.test.failure.ignore=true clean package"
+                sh 'mvn compile test install'
+                //bat "mvn -Dmaven.test.failure.ignore=true clean package"
             }
-            post{
+           /* post{
                 success{
                     junit '**target/surefire-reports/TEST-*.xml'
                     archieveArtifacts 'target/*.jar'
                 }
-            }
+            }*/
         } 
     }
     

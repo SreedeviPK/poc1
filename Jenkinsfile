@@ -8,9 +8,9 @@ pipeline {
     {
         stage('Build')
         {
-            steps{
-                git 'https://github.com/SreedeviPK/poc1'
-                sh 'mvn compile test install'
+            steps{echo 'Build'
+                //git 'https://github.com/SreedeviPK/poc1'
+               // sh 'mvn compile test install'
                 //bat "mvn -Dmaven.test.failure.ignore=true clean package"
             }
            /* post{

@@ -11,7 +11,7 @@ pipeline {
             steps{echo 'Build'
                 git 'https://github.com/SreedeviPK/poc1.git'
                 //sh "mvn clean install"
-                bat "mvn -Dmaven.test.failure.ignore=true clean package"
+               // bat "mvn -Dmaven.test.failure.ignore=true clean package"
             }
            /* post{
                 success{
